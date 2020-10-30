@@ -2,12 +2,12 @@ test: dist/test.exe
 	# running test #
 	./$<
 
-dist/EventEmitter.o: src/lib/EventEmitter.c
+dist/Emitter.o: src/lib/Emitter.c
 	gcc -c -o $@ $<
 
-dist/test.exe: src/test.c dist/EventEmitter.o
+dist/test.exe: src/test.c dist/Emitter.o
 	# compiling $@ #
-	gcc -o $@ $^
+	gcc -o $@ $^ -lcstructures
 
 clean:
 	rm -fv dist/*
